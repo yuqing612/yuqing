@@ -1,0 +1,127 @@
+/* =========================================================
+   全局样式：设计变量 / 重置 / 公共动画
+   ========================================================= */
+
+:root {
+  --ink: #2f2445;
+  --ink-soft: #7a6f96;
+  --line: rgba(126, 104, 180, 0.14);
+  --pink: #ff8fb1;
+  --pink-deep: #ff6f9c;
+  --violet: #a78bfa;
+  --sky: #7dd3fc;
+  --accent: #b06ab3;
+  --grad: linear-gradient(105deg, #ff8fb1 0%, #c084fc 45%, #7dd3fc 100%);
+  --glass: rgba(255, 255, 255, 0.62);
+  --radius: 26px;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei",
+    -apple-system, "Segoe UI", system-ui, sans-serif;
+  color: var(--ink);
+  background: #f7f2ff;
+  overflow: hidden;
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+button {
+  font-family: inherit;
+}
+
+/* ============ 公共动画（组件 scoped 内引用，避免 keyframes 被局部重命名） ============ */
+@keyframes float1 {
+  50% {
+    transform: translate(60px, 50px) scale(1.12);
+  }
+}
+@keyframes float2 {
+  50% {
+    transform: translate(-70px, -40px) scale(1.08);
+  }
+}
+@keyframes sway {
+  50% {
+    transform: translateY(-14px) rotate(9deg);
+  }
+}
+@keyframes pulse {
+  50% {
+    box-shadow: 0 0 0 8px rgba(52, 211, 153, 0);
+  }
+}
+@keyframes logoFloat {
+  50% {
+    transform: translateY(-4px) rotate(-6deg);
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(38px) scale(0.965);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  20% {
+    transform: translateX(-9px);
+  }
+  40% {
+    transform: translateX(8px);
+  }
+  60% {
+    transform: translateX(-5px);
+  }
+  80% {
+    transform: translateX(4px);
+  }
+}
+@keyframes spin360 {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes pop {
+  0% {
+    transform: scale(0.3);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
